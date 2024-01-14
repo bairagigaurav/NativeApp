@@ -1,7 +1,6 @@
-// import { StatusBar } from 'expo-status-bar';
+import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import { Image, StatusBar } from 'react-native';
+import {  Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import {LinearGradient} from 'expo-linear-gradient';
 import SelectDropdown from 'react-native-select-dropdown'
 
@@ -34,74 +33,32 @@ export default function App() {
               />
           </View>
             <TouchableOpacity style={styles.btnPrimary} onPress={onPress}>
-          <Text style={styles.btnPrimaryText}>Total: ₹{count}</Text>
+                <Text style={styles.btnPrimaryText}>Total: ₹{count}</Text>
             </TouchableOpacity>
         </View>
         <View>
         <View style={styles.totalSection}>
-          <View style={styles.totalPrizeCard}>
           <Text style={styles.totalPriceText}>Total Prize ₹2.01Cr</Text>
-            <Image
-              source={require('./assets/down-arrow.png')} 
-              style={styles.downArrow} 
-            />
-            
-          </View>
-          <View style={styles.trophyCard}>
-            <Image
-              source={require('./assets/trophy.png')} 
-              style={styles.trophyImg} 
-            />
-            <Text style={styles.totalWinner}>40% Winners</Text>
-          </View>
+          <Text style={styles.totalWinner}>40% Winners</Text>
           <LinearGradient  start={{x: 0, y: 0.75}} end={{x: 1, y: 0.25}} colors={['#d24580', '#647ecb' ]} style={styles.linearGradientBadge}>
-            <Image
-            source={require('./assets/grow.png')} 
-            style={styles.growImg} 
-          />
               <Text style={styles.linearGradientBadgeText}>
-             Win 1 CR
+                Win 1 CR
               </Text>
-            </LinearGradient>
+        </LinearGradient>
         </View>
         <View style={styles.teamScoreSection}>
           <Text style={styles.totalPriceText}>1123/4000 teams</Text>
           <View style={styles.teamScoreSectionRight}>
-              <View style={styles.teamScoreContent} >
-                <Image
-              source={require('./assets/guaranteed.png')}  
-              style={styles.guaranteedImg} 
-            />
-             <Text style={styles.teamScoreSectionRightTextBlue}>100%</Text>
-              </View>
-              <View style={styles.teamScoreContent} >
-                <Image
-              source={require('./assets/boost.png')}  
-              style={styles.guaranteedImg} 
-            />
-             <Text style={styles.teamScoreSectionRightText}>3</Text>
-              </View>
-              <View style={styles.teamScoreContent} >
-                <Image
-              source={require('./assets/group.png')}  
-              style={styles.guaranteedImg} 
-            />
-             <Text style={styles.teamScoreSectionRightText}>13</Text>
-              </View>
-             
-   
+            <Text style={styles.teamScoreSectionRightText}>100%</Text>
+            <Text style={styles.teamScoreSectionRightText}>3</Text>
+            <Text style={styles.teamScoreSectionRightText}>13</Text>
           </View>
         </View>
         </View>
       </View>
       <View style={styles.themeBottomCard}>
-        <Image
-          source={require('./assets/up.png')} 
-          style={styles.upIcon} 
-        />
-          <Text  style={styles.themeBottomCardText}>Biggest prizes guaranteed / IPL tagline</Text>
+        <Text  style={styles.themeBottomCardText}>Biggest prizes guaranteed / IPL tagline</Text>
       </View>
-      
       <StatusBar style="auto" />
     </View>
   );
@@ -199,12 +156,10 @@ const styles = StyleSheet.create({
       paddingRight:20,
       paddingTop:5,
       paddingBottom:5,
-      borderTopLeftRadius:20,
-      borderBottomLeftRadius:20,
+      borderTopLeftRadius:10,
+      borderBottomLeftRadius:10,
       position:"absolute",
-      right:-10,
-      flexDirection:"row",
-      alignItems:"center",
+      right:-10
   },
   linearGradientBadgeText:{
     color:"#fff",
@@ -213,8 +168,8 @@ const styles = StyleSheet.create({
   },
   totalPriceText:{
     color:"#666666",
-    fontSize:10,
-    marginRight:10,
+    fontSize:12,
+    marginRight:20,
   },
   totalWinner:{
     color:"#666666",
@@ -228,10 +183,9 @@ const styles = StyleSheet.create({
     flexDirection:"row",
   },
   teamScoreSectionRightText:{
-    paddingLeft:2,
-    // paddingRight:10,
+    paddingLeft:10,
+    paddingRight:10,
     color:"#333333",
-    fontWeight:"bold",
   },
   themeBottomCard:{
     backgroundColor:"#D9F1FE",
@@ -243,57 +197,9 @@ const styles = StyleSheet.create({
     borderStyle:"dashed",
     borderColor:"#999999",
     borderTopWidth:1, 
-    flexDirection:"row",
-    alignItems:"center",
   },
   themeBottomCardText:{
     fontWeight:"bold",
-    // textTransform:"capitalize",
-  },
-  upIcon:{
-        width: 25, 
-        height: 25, 
-        marginRight:10,
-  },
-  growImg:{
-    height:20,
-    width:20,
-    marginRight:5,
-  },
-  trophyCard:{
-    flexDirection:"row",
-    justifyContent:"space-between",
-  },
-  downArrow:{
-    height:6,
-    width:10,
-
-  },
-  totalPrizeCard:{
-    flexDirection:"row",
-    justifyContent:"space-between",
-    alignItems:"center",
-    marginRight:5,
-  },
-  trophyImg:{
-    height:15,
-    width:15,
-    marginRight:5,
-  },
-  guaranteedImg:{
-    height:16,
-    width:16,
-  },
-  teamScoreContent:{
-    flexDirection:"row",
-    justifyContent:"space-between",
-    alignItems:"center",
-    marginRight:10,
-  },
-  teamScoreSectionRightTextBlue:{
-    color:"#024680",
-    fontWeight:"bold",
-    paddingLeft:2,
   }
 
 });
