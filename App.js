@@ -1,17 +1,14 @@
-// import { StatusBar } from 'expo-status-bar';
-import { useState } from 'react';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import { Image, StatusBar } from 'react-native';
-import {LinearGradient} from 'expo-linear-gradient';
-import SelectDropdown from 'react-native-select-dropdown'
+import React, { useState } from 'react';
+import { View, Text, TouchableOpacity, Image, StatusBar, StyleSheet } from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient';
+import SelectDropdown from 'react-native-select-dropdown';
 
+const amount = ["₹1 Cr", "₹2 Cr", "₹3 Cr", "₹4 Cr"];
 
-const amount = ["₹1 Cr", "₹2 Cr", "₹3 Cr", "₹4 Cr"]
-
-
-export default function App() {
+const App = () => {
   const [count, setCount] = useState(0);
   const onPress = () => setCount(prevCount => prevCount + 1);
+
   return (
     <View style={styles.container}>
       <View style={styles.themeCard}>
@@ -19,93 +16,67 @@ export default function App() {
           <View style={styles.themeBadge}>
             <Text style={styles.badgeText}>Mega Contest</Text>
           </View>
-          
+
           <View style={styles.discount}>
-            <Text style={styles.discountText}>Discount ends in 10:05:45
-            </Text>
+            <Text style={styles.discountText}>Discount ends in 10:05:45</Text>
             <Text style={styles.discountAmount}>₹60</Text>
           </View>
         </View>
+
         <View style={styles.prizeSection}>
           <View style={styles.selectWrap}>
-            <SelectDropdown
-              data={amount}
-              fontSize={12}
-              />
+            <SelectDropdown data={amount} fontSize={12} />
           </View>
-            <TouchableOpacity style={styles.btnPrimary} onPress={onPress}>
-          <Text style={styles.btnPrimaryText}>Total: ₹{count}</Text>
-            </TouchableOpacity>
+          <TouchableOpacity style={styles.btnPrimary} onPress={onPress}>
+            <Text style={styles.btnPrimaryText}>Total: ₹{count}</Text>
+          </TouchableOpacity>
         </View>
-        <View>
+
         <View style={styles.totalSection}>
           <View style={styles.totalPrizeCard}>
-          <Text style={styles.totalPriceText}>Total Prize ₹2.01Cr</Text>
-            <Image
-              source={require('./assets/down-arrow.png')} 
-              style={styles.downArrow} 
-            />
-            
+            <Text style={styles.totalPriceText}>Total Prize ₹2.01Cr</Text>
+            <Image source={require('./assets/down-arrow.png')} style={styles.downArrow} />
           </View>
+
           <View style={styles.trophyCard}>
-            <Image
-              source={require('./assets/trophy.png')} 
-              style={styles.trophyImg} 
-            />
+            <Image source={require('./assets/trophy.png')} style={styles.trophyImg} />
             <Text style={styles.totalWinner}>40% Winners</Text>
           </View>
-          <LinearGradient  start={{x: 0, y: 0.75}} end={{x: 1, y: 0.25}} colors={['#d24580', '#647ecb' ]} style={styles.linearGradientBadge}>
-            <Image
-            source={require('./assets/grow.png')} 
-            style={styles.growImg} 
-          />
-              <Text style={styles.linearGradientBadgeText}>
-             Win 1 CR
-              </Text>
-            </LinearGradient>
+
+          <LinearGradient start={{ x: 0, y: 0.75 }} end={{ x: 1, y: 0.25 }} colors={['#d24580', '#647ecb']} style={styles.linearGradientBadge}>
+            <Image source={require('./assets/grow.png')} style={styles.growImg} />
+            <Text style={styles.linearGradientBadgeText}>Win 1 CR</Text>
+          </LinearGradient>
         </View>
+
         <View style={styles.teamScoreSection}>
           <Text style={styles.totalPriceText}>1123/4000 teams</Text>
           <View style={styles.teamScoreSectionRight}>
-              <View style={styles.teamScoreContent} >
-                <Image
-              source={require('./assets/guaranteed.png')}  
-              style={styles.guaranteedImg} 
-            />
-             <Text style={styles.teamScoreSectionRightTextBlue}>100%</Text>
-              </View>
-              <View style={styles.teamScoreContent} >
-                <Image
-              source={require('./assets/boost.png')}  
-              style={styles.guaranteedImg} 
-            />
-             <Text style={styles.teamScoreSectionRightText}>3</Text>
-              </View>
-              <View style={styles.teamScoreContent} >
-                <Image
-              source={require('./assets/group.png')}  
-              style={styles.guaranteedImg} 
-            />
-             <Text style={styles.teamScoreSectionRightText}>13</Text>
-              </View>
-             
-   
+            <View style={styles.teamScoreContent}>
+              <Image source={require('./assets/guaranteed.png')} style={styles.guaranteedImg} />
+              <Text style={styles.teamScoreSectionRightTextBlue}>100%</Text>
+            </View>
+            <View style={styles.teamScoreContent}>
+              <Image source={require('./assets/boost.png')} style={styles.guaranteedImg} />
+              <Text style={styles.teamScoreSectionRightText}>3</Text>
+            </View>
+            <View style={styles.teamScoreContent}>
+              <Image source={require('./assets/group.png')} style={styles.guaranteedImg} />
+              <Text style={styles.teamScoreSectionRightText}>13</Text>
+            </View>
           </View>
         </View>
-        </View>
       </View>
+
       <View style={styles.themeBottomCard}>
-        <Image
-          source={require('./assets/up.png')} 
-          style={styles.upIcon} 
-        />
-          <Text  style={styles.themeBottomCardText}>Biggest prizes guaranteed / IPL tagline</Text>
+        <Image source={require('./assets/up.png')} style={styles.upIcon} />
+        <Text style={styles.themeBottomCardText}>Biggest prizes guaranteed / IPL tagline</Text>
       </View>
-      
+
       <StatusBar style="auto" />
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -229,7 +200,6 @@ const styles = StyleSheet.create({
   },
   teamScoreSectionRightText:{
     paddingLeft:2,
-    // paddingRight:10,
     color:"#333333",
     fontWeight:"bold",
   },
@@ -295,5 +265,6 @@ const styles = StyleSheet.create({
     fontWeight:"bold",
     paddingLeft:2,
   }
-
 });
+
+export default App;
